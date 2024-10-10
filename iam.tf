@@ -6,7 +6,7 @@ resource "aws_iam_role" "this" {
 }
 
 module "assume_role_policy_document" {
-  source = "github.com/skrastrek/terraform-modules-aws-iam-policy-document//service-assume-role?ref=v0.0.1"
+  source = "github.com/skrastrek/terraform-modules-aws-iam//policy-document/service-assume-role?ref=v0.0.1"
 
   service_identifiers = ["lambda.amazonaws.com"]
 }
