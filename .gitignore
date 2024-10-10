@@ -1,0 +1,12 @@
+##########
+# IntelliJ
+##########
+
+# Ignore the entire IntelliJ configuration directory.
+.idea
+
+###########
+# Terraform
+###########
+.terraform
+.terraform.lock.hcl
