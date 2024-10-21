@@ -1,5 +1,5 @@
 {
-  "name": "lambda-cognito-pre-sign-up-link-federated-user",
+  "name": "lambda-cognito-link-federated-user",
   "version": "1.0.0",
   "main": "src/index.ts",
   "dependencies": {},
