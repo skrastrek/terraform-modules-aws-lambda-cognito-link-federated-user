@@ -8,7 +8,7 @@
     "@types/aws-lambda": "^8.10.147",
     "@types/node": "^22.13.9",
     "@aws-sdk/client-cognito-identity-provider": "^3.758.0",
-    "esbuild": "^0.24.2"
+    "esbuild": "^0.25.0"
   },
   "scripts": {
     "build": "esbuild src/index.ts --bundle --minify --platform=node --target=node20 --outdir=dist"
