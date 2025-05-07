@@ -5,10 +5,10 @@
   "main": "src/index.ts",
   "dependencies": {},
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.148",
-    "@types/node": "^22.14.0",
-    "@aws-sdk/client-cognito-identity-provider": "^3.777.0",
-    "esbuild": "^0.25.2"
+    "@types/aws-lambda": "^8.10.149",
+    "@types/node": "^22.15.14",
+    "@aws-sdk/client-cognito-identity-provider": "^3.804.0",
+    "esbuild": "^0.25.4"
   },
   "scripts": {
     "build": "esbuild src/index.ts --bundle --minify --platform=node --target=node20 --outdir=dist"
