@@ -5,9 +5,9 @@
   "main": "src/index.ts",
   "dependencies": {},
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.149",
-    "@types/node": "^22.15.29",
-    "@aws-sdk/client-cognito-identity-provider": "^3.821.0",
+    "@types/aws-lambda": "^8.10.150",
+    "@types/node": "^24.0.8",
+    "@aws-sdk/client-cognito-identity-provider": "^3.840.0",
     "esbuild": "^0.25.5"
   },
   "scripts": {
