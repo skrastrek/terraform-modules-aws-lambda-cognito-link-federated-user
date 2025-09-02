@@ -6,9 +6,9 @@
   "dependencies": {},
   "devDependencies": {
     "@types/aws-lambda": "^8.10.152",
-    "@types/node": "^24.1.0",
-    "@aws-sdk/client-cognito-identity-provider": "^3.858.0",
-    "esbuild": "^0.25.8"
+    "@types/node": "^24.3.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.879.0",
+    "esbuild": "^0.25.9"
   },
   "scripts": {
     "build": "esbuild src/index.ts --bundle --minify --platform=node --target=node20 --outdir=dist"
