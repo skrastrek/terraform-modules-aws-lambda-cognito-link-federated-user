@@ -1,7 +1,6 @@
-data "aws_region" "current" {}
-
 locals {
-  resources_path = "${path.module}/resources"
+  resources_path             = "${path.module}/resources"
+  resources_source_code_hash = sha1(join("", [for f in fileset(path.root, "${local.resources_path}/**") : filesha1(f)]))
 }
 
 data "external" "npm_build" {
@@ -14,9 +13,10 @@ EOT
 }
 
 data "archive_file" "zip" {
-  type        = "zip"
-  source_file = "${local.resources_path}/dist/${data.external.npm_build.result.filename}"
-  output_path = "${local.resources_path}/lambda.zip"
+  type             = "zip"
+  source_file      = "${local.resources_path}/dist/${data.external.npm_build.result.filename}"
+  output_path      = "${local.resources_path}/lambda-${local.resources_source_code_hash}.zip"
+  output_file_mode = "0666"
 }
 
 resource "aws_lambda_function" "this" {
