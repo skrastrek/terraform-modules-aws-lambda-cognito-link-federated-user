@@ -1,6 +1,6 @@
 locals {
   resources_path             = "${path.module}/resources"
-  resources_source_code_hash = sha1(join("", [for f in fileset(path.root, "${local.resources_path}/**") : filesha1(f)]))
+  resources_source_code_hash = sha256(join("", [for f in fileset(path.root, "${local.resources_path}/**") : filesha256(f)]))
 }
 
 data "external" "npm_build" {
