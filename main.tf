@@ -27,7 +27,7 @@ resource "aws_lambda_function" "this" {
 
   publish = true
 
-  runtime       = "nodejs20.x"
+  runtime       = "nodejs22.x"
   architectures = ["arm64"]
 
   memory_size = var.memory_size
