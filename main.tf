@@ -1,6 +1,12 @@
 locals {
-  resources_path             = "${path.module}/resources"
-  resources_source_code_hash = sha256(join("", [for f in fileset(path.root, "${local.resources_path}/**") : filesha256(f)]))
+  resources_path                  = "${path.module}/resources"
+  resources_src_hash              = sha256(join("", [for f in fileset(local.resources_path, "src/**") : filesha256(f)]))
+  resources_npm_package_hash      = filesha256("${local.resources_path}/package.json")
+  resources_npm_package_lock_hash = filesha256("${local.resources_path}/package-lock.json")
+
+  resources_content_hash = sha256(join("", [
+    local.resources_src_hash, local.resources_npm_package_hash, local.resources_npm_package_lock_hash
+  ]))
 }
 
 data "external" "npm_build" {
@@ -15,7 +21,7 @@ EOT
 data "archive_file" "zip" {
   type             = "zip"
   source_file      = "${local.resources_path}/dist/${data.external.npm_build.result.filename}"
-  output_path      = "${local.resources_path}/lambda-${local.resources_source_code_hash}.zip"
+  output_path      = "${local.resources_path}/lambda-${local.resources_content_hash}.zip"
   output_file_mode = "0666"
 }
 
