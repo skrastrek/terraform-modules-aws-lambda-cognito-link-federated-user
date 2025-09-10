@@ -1,6 +1,6 @@
 locals {
   resources_path                  = "${path.module}/resources"
-  resources_src_hash              = sha256(join("", [for f in fileset(local.resources_path, "src/**") : filesha256(f)]))
+  resources_src_hash              = sha256(join("", [for f in fileset(path.root, "${local.resources_path}/src/**") : filesha256(f)]))
   resources_npm_package_hash      = filesha256("${local.resources_path}/package.json")
   resources_npm_package_lock_hash = filesha256("${local.resources_path}/package-lock.json")
 
