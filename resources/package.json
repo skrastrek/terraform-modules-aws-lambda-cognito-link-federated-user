@@ -11,6 +11,6 @@
     "esbuild": "^0.27.1"
   },
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --minify --platform=node --target=node22 --outdir=dist"
+    "build": "esbuild src/index.ts --bundle --minify --platform=node --target=node24 --outdir=dist"
   }
 }
